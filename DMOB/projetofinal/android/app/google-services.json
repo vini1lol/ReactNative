@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "771960763965",
+    "firebase_url": "https://desmob-a716e.firebaseio.com",
+    "project_id": "desmob-a716e",
+    "storage_bucket": "desmob-a716e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771960763965:android:0275965b4ddc9c16c39c54",
+        "android_client_info": {
+          "package_name": "com.invertase.rnfirebasestarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771960763965-f0ebhck36eqbiambou386cltvjv2su4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIrgpzmI8FawU5-UrNqN9uOk3BZfe4MO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771960763965-f0ebhck36eqbiambou386cltvjv2su4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
