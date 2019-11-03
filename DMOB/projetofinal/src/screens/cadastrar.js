@@ -2,6 +2,7 @@ import React from 'react';
 import { TextInput, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 import firebase from 'react-native-firebase';
+import { green } from 'ansi-colors';
 
 
 class Cadastrar extends React.Component {
@@ -12,6 +13,7 @@ class Cadastrar extends React.Component {
     numero: "",
   }
   onpress() {
+    alert("oi");
     firebase.firestore().collection("livros").add({
       nome: this.state.nome,
       autor: this.state.autor,
@@ -35,7 +37,9 @@ class Cadastrar extends React.Component {
 
         <TextInput style={styles.texto} placeholder='+5584999999999' onChangeText={(text) => this.setState({ numero: text })} value={this.state.numero} ></TextInput>
 
-        <TouchableOpacity onpress={this.onpress}><Text>Cadastrar</Text></TouchableOpacity>
+        <View style={{ alignItems: "center", marginTop: 10 }}>
+          <TouchableOpacity onpress={this.onpress}><Text>Cadastrar</Text></TouchableOpacity>
+        </View>
       </View>
     )
   }
