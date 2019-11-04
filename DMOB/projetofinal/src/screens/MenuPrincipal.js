@@ -1,6 +1,7 @@
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import { createAppContainer, DrawerItems } from 'react-navigation';
-import { View, SafeAreaView, ScrollView, Dimensions, Image } from 'react-native'
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import { createAppContainer } from 'react-navigation';
+import { View, SafeAreaView, ScrollView, Image } from 'react-native'
+import React, { Component } from 'react'
 
 import Home from './Home'
 import Cadastrar from './cadastrar'
@@ -14,6 +15,19 @@ const CostumDrawerComponent = (props) => (
             <DrawerItems {...props} />
         </ScrollView>
     </SafeAreaView>
+    // <Container>
+    //     <Header>
+    //         <Body>
+    //             <Image
+    //                 source={{ uri: "https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png" }}
+    //                 style={{ height: 120, width: 120 }}
+    //             />
+    //         </Body>
+    //     </Header>
+    //     <Content>
+    //         <DrawerItems {...props} />
+    //     </Content>
+    // </Container>
 );
 
 const drawerNavigation = createDrawerNavigator({
