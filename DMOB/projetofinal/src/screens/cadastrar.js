@@ -12,7 +12,7 @@ class Cadastrar extends React.Component {
     autor: "",
     numero: "",
   }
-  onpress() {
+  onpress = () => {
     alert("oi");
     firebase.firestore().collection("livros").add({
       nome: this.state.nome,
