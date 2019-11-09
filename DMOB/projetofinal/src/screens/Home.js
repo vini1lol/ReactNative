@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, StyleSheet, View } from 'react-native';
+import { FlatList, Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import firebase from 'react-native-firebase';
 
@@ -10,7 +10,10 @@ export default class Home extends Component {
         super(props)
 
         this.state = {
-            livros: []
+            livros: [],
+            nome: "",
+            autor: "",
+            telefone: "",
         }
     }
 
@@ -29,18 +32,25 @@ export default class Home extends Component {
             })
     }
 
+    page = ({ item }) => {
+        this.props.navigation.navigate("Pagina", { nome: item.nome, autor: item.autor, telefone: item.telefone });
+    }
+
     renderItem = ({ item }) => {
+
         return (
             <View style={styles.vi}>
-                <Text >
-                    Nome: {item.nome}
-                </Text>
-                <Text >
-                    Autor: {item.autor}
-                </Text>
-                <Text>
-                    Telefone: {item.telefone}
-                </Text>
+                <TouchableOpacity onPress={this.page({ item })}>
+                    <Text >
+                        Nome: {item.nome}
+                    </Text>
+                    <Text >
+                        Autor: {item.autor}
+                    </Text>
+                    <Text>
+                        Telefone: {item.telefone}
+                    </Text>
+                </TouchableOpacity>
             </View>
         )
     }

@@ -38,7 +38,7 @@ export default class PhoneAuthTest extends Component {
   }
 
   componentWillUnmount() {
-     if (this.unsubscribe) this.unsubscribe();
+    if (this.unsubscribe) this.unsubscribe();
   }
 
   signIn = () => {
@@ -67,7 +67,7 @@ export default class PhoneAuthTest extends Component {
   }
 
   renderPhoneNumberInput() {
-   const { phoneNumber } = this.state;
+    const { phoneNumber } = this.state;
 
     return (
       <View style={{ padding: 25 }}>
@@ -113,9 +113,10 @@ export default class PhoneAuthTest extends Component {
   }
 
   render() {
-    const { user, confirmResult } = this.state;
-    if(user) {
-      this.props.navigation.navigate('MenuPrincipal')
+    const { user, confirmResult, phoneNumber } = this.state;
+    if (user) {
+      this.props.navigation.navigate('MenuPrincipal', { Number: phoneNumber })
+
     }
 
     return (

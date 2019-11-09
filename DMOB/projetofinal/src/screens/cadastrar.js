@@ -13,13 +13,15 @@ class Cadastrar extends React.Component {
     numero: "",
   }
   onpress = () => {
-    alert("oi");
     firebase.firestore().collection("livros").add({
       nome: this.state.nome,
       autor: this.state.autor,
       telefone: this.state.numero
     })
-      .then(() => alert('Livro cadastrado com sucesso'))
+      .then(() =>
+        alert('Livro cadastrado com sucesso'),
+        this.props.navigation.navigate('Home')
+      )
       .catch(() => alert('Erro ao cadastrar livro'))
   }
   render() {
@@ -38,7 +40,7 @@ class Cadastrar extends React.Component {
         <TextInput style={styles.texto} placeholder='+5584999999999' onChangeText={(text) => this.setState({ numero: text })} value={this.state.numero} ></TextInput>
 
         <View style={{ alignItems: "center", marginTop: 10 }}>
-          <TouchableOpacity onpress={this.onpress}><Text>Cadastrar</Text></TouchableOpacity>
+          <TouchableOpacity onPress={this.onpress}><Text>Cadastrar</Text></TouchableOpacity>
         </View>
       </View>
     )
