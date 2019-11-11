@@ -32,15 +32,15 @@ export default class Home extends Component {
             })
     }
 
-    page = ({ item }) => {
-        this.props.navigation.navigate("Pagina", { nome: item.nome, autor: item.autor, telefone: item.telefone });
+    page = (index) => {
+        this.props.navigation.navigate("Pagina", { nome: this.state.livros[index].nome, autor: this.state.livros[index].autor, telefone: this.state.livros[index].telefone });
     }
 
-    renderItem = ({ item }) => {
+    renderItem = ({ item, index }) => {
 
         return (
             <View style={styles.vi}>
-                <TouchableOpacity onPress={this.page({ item })}>
+                <TouchableOpacity onPress={() => this.page(index)}>
                     <Text >
                         Nome: {item.nome}
                     </Text>
