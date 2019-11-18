@@ -7,6 +7,10 @@ import { green } from 'ansi-colors';
 
 class Cadastrar extends React.Component {
 
+  static navigationOptions = {
+    drawerLabel: () => null
+  }
+
   state = {
     nome: "",
     autor: "",
