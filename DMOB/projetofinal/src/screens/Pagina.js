@@ -3,7 +3,17 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 export default class Pagina extends React.Component {
 
+  static navigationOptions = {
+    drawerLabel: () => null
+  }
+
   press = () => {
+
+    if (this.props.navigation.getParam("Number", "ss") == this.props.navigation.getParam("telefone", "mm")) {
+      //apagar
+    }
+
+    this.props.navigation.navigate("Home");
 
   }
 
