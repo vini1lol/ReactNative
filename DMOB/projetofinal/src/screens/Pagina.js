@@ -7,27 +7,18 @@ export default class Pagina extends React.Component {
     drawerLabel: () => null
   }
 
-  press = () => {
-
-    if (this.props.navigation.getParam("Number", "ss") == this.props.navigation.getParam("telefone", "mm")) {
-      //apagar
-    }
-
-    this.props.navigation.navigate("Home");
-
-  }
 
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center" }}>
         <View style={styles.card}>
-          <Text>Nome:{this.props.navigation.getParam("nome", "mm")}</Text>
-          <Text>Autor:{this.props.navigation.getParam('autor', 'mm')}</Text>
-          <Text>Telefone:{this.props.navigation.getParam("telefone", "mm")}</Text>
+          <Text style={styles.testo}>Nome:{this.props.navigation.getParam("nome", "mm")}</Text>
+          <Text style={styles.testo}>Autor:{this.props.navigation.getParam('autor', 'mm')}</Text>
+          <Text style={styles.testo}>Telefone:{this.props.navigation.getParam("telefone", "mm")}</Text>
         </View>
         <View style={{ flex: 1, justifyContent: "flex-end", alignItems: "flex-end" }}>
           <View style={styles.car}>
-            <TouchableOpacity onPress={() => this.press}><Text>Apagar</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")}><Text>Apagar</Text></TouchableOpacity>
           </View>
         </View>
       </View>
@@ -48,5 +39,8 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     padding: 10,
     marginBottom: 2
+  },
+  testo: {
+    fontSize: 16,
   }
 })

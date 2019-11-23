@@ -6,9 +6,7 @@ export default class MeusDados extends Component {
     nome: "",
     Email: "",
   }
-  opp = () => {
-    this.props.navigation.navigate("Home", { NumerUser: this.state.nome, EmailUser: this.state.Email });
-  }
+
 
   render() {
     return (
@@ -22,11 +20,11 @@ export default class MeusDados extends Component {
 
         <View style={{ flexDirection: "row" }}>
           <Text style={styles.texto1}>E-mail:</Text>
-          <TextInput style={styles.texto} placeholder='E-mail' onChangeText={(text) => this.setState({ nome: text })} value={this.state.Email}></TextInput>
+          <TextInput style={styles.texto} placeholder='E-mail' onChangeText={(text) => this.setState({ Email: text })} value={this.state.Email}></TextInput>
         </View>
 
         <View style={{ alignItems: "center", marginTop: 10 }}>
-          <TouchableOpacity onPress={() => this.opp}><Text>Salvar</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Home", { NumerUser: this.state.nome, EmailUser: this.state.Email })} style={{ backgroundColor: "cyan", height: 40, width: 80, borderRadius: 20, justifyContent: "center", alignItems: "center" }}><Text>Salvar</Text></TouchableOpacity>
         </View>
 
       </View>

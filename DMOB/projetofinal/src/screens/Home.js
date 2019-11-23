@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { FlatList, Text, StyleSheet, View, TouchableOpacity, Button } from 'react-native';
+import { FlatList, Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import firebase from 'react-native-firebase';
 import { Button } from 'native-base';
+import { blue } from 'ansi-colors';
 
 const extractKey = ({ id }) => id
 
@@ -37,9 +38,7 @@ export default class Home extends Component {
         this.props.navigation.navigate("Pagina", { nome: this.state.livros[index].nome, autor: this.state.livros[index].autor, telefone: this.state.livros[index].telefone });
     }
 
-    pp = () => {
-        this.props.navigation.navigate("Cadastrar");
-    }
+
 
     renderItem = ({ item, index }) => {
 
@@ -69,8 +68,8 @@ export default class Home extends Component {
                     renderItem={this.renderItem}
                     keyExtractor={extractKey}
                 />
-                <View style={{ flex: 1 }}>
-                    <Button onPress={() => this.pp}>+</Button>
+                <View style={{ flex: 1, justifyContent: "flex-end", alignItems: "flex-end" }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("Cadastrar")} style={{ backgroundColor: "skyblue", borderRadius: 40, height: 80, width: 80, margin: 8, alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 60 }}>+</Text></TouchableOpacity>
                 </View>
 
             </View>

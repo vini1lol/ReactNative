@@ -37,14 +37,14 @@ class Cadastrar extends React.Component {
 
         <Text>Autor:</Text>
 
-        <TextInput style={styles.texto} placeholder='autor' onChangeText={(text) => this.setState({ autor: text })} value={this.state.autor}></TextInput>
+        <TextInput style={styles.texto} placeholder='autor' onChangeText={(tex) => this.setState({ autor: tex })} value={this.state.autor}></TextInput>
 
         <Text>Telefone:</Text>
 
         <TextInput style={styles.texto} placeholder='+5584999999999' onChangeText={(text) => this.setState({ numero: text })} value={this.state.numero} ></TextInput>
 
         <View style={{ alignItems: "center", marginTop: 10 }}>
-          <TouchableOpacity onPress={this.onpress}><Text>Cadastrar</Text></TouchableOpacity>
+          <TouchableOpacity onPress={this.onpress} style={{ backgroundColor: "cyan", height: 40, width: 80, borderRadius: 20, justifyContent: "center", alignItems: "center" }}><Text style={{ fontSize: 15 }}>Cadastrar</Text></TouchableOpacity>
         </View>
       </View>
     )
