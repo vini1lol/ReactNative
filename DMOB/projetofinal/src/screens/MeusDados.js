@@ -1,17 +1,23 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 
+import firebase from 'react-native-firebase';
+
 export default class MeusDados extends Component {
   state = {
     nome: "",
     Email: "",
+    telefone: "",
   }
 
 
   render() {
     return (
       <View>
-        <Text style={styles.texto1}>Numero: {this.props.navigation.getParam("Number", "mm")}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={styles.texto1}>Telefone:</Text>
+          <TextInput style={styles.texto} placeholder='numero' onChangeText={(text) => this.setState({ telefone: text })} value={this.state.telefone}></TextInput>
+        </View>
 
         <View style={{ flexDirection: "row" }}>
           <Text style={styles.texto1}>Nome:</Text>
@@ -24,7 +30,20 @@ export default class MeusDados extends Component {
         </View>
 
         <View style={{ alignItems: "center", marginTop: 10 }}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("Home", { NumerUser: this.state.nome, EmailUser: this.state.Email })} style={{ backgroundColor: "cyan", height: 40, width: 80, borderRadius: 20, justifyContent: "center", alignItems: "center" }}><Text>Salvar</Text></TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              firebase.firestore().collection("users").add({
+                nome: this.state.nome,
+                Email: this.state.Email,
+                telefone: this.state.telefone
+              })
+                .then(() =>
+                  alert('Dados cadastrado com sucesso'),
+                  this.props.navigation.navigate('Home')
+                )
+                .catch(() => alert('Erro ao cadastrar Dados'))
+            }
+            style={{ backgroundColor: "cyan", height: 40, width: 80, borderRadius: 20, justifyContent: "center", alignItems: "center" }}><Text>Salvar</Text></TouchableOpacity>
         </View>
 
       </View>

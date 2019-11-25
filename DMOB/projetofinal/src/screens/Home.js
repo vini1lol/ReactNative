@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { FlatList, Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import firebase from 'react-native-firebase';
-import { Button } from 'native-base';
-import { blue } from 'ansi-colors';
 
 const extractKey = ({ id }) => id
 
@@ -35,7 +33,7 @@ export default class Home extends Component {
     }
 
     page = (index) => {
-        this.props.navigation.navigate("Pagina", { nome: this.state.livros[index].nome, autor: this.state.livros[index].autor, telefone: this.state.livros[index].telefone });
+        this.props.navigation.navigate("Pagina", { nome: this.state.livros[index].nome, autor: this.state.livros[index].autor, telefone: this.state.livros[index].telefone, id: this.state.livros[index].id });
     }
 
 

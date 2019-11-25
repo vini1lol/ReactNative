@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
+import firebase from 'react-native-firebase';
+
 export default class Pagina extends React.Component {
 
   static navigationOptions = {
@@ -18,7 +20,17 @@ export default class Pagina extends React.Component {
         </View>
         <View style={{ flex: 1, justifyContent: "flex-end", alignItems: "flex-end" }}>
           <View style={styles.car}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")}><Text>Apagar</Text></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                firebase.firestore().collection("livros").doc(this.props.navigation.getParam("id", "0")).delete()
+                  .then(function () {
+                    alert("deleted")
+                    this.props.navigation.navigate("Home")
+                  }).catch(function (error) {
+                    alert("Error removing document: ", error);
+                  })
+              }
+            ><Text>Apagar</Text></TouchableOpacity>
           </View>
         </View>
       </View>
